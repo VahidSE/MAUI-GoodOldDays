@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.MainPage">
+
+    <ScrollView>
+        <!--<WebView Source="https://notionpress.com/author/259113"></WebView>-->
+
+        <VerticalStackLayout>
+            <Frame>
+                <Button x:Name="btnDownloadTracker" Text="Download data as PDF" Clicked="btnDownloadTracker_Clicked" Margin="0" BackgroundColor="Transparent" TextColor="Blue">
+                </Button>
+            </Frame>
+            <Frame>
+                <Label Text="Manage your app" FontSize="Title" TextColor="Blue" HorizontalTextAlignment="Center"></Label>
+            </Frame>
+            <Frame>
+                <Button x:Name="btnDeleteNotes" Text="Delete Notes Data" Clicked="btnDeleteNotes_Clicked" Margin="0" BackgroundColor="Transparent" TextColor="Blue">
+            </Button>
+            </Frame>
+            <Frame>
+                <Button x:Name="btnDeleteTasks" Text="Delete Tasks Data" Clicked="btnDeleteTasks_Clicked" Margin="0" BackgroundColor="Transparent" TextColor="Blue">
+            </Button>
+            </Frame>
+            <Frame>
+                <Button x:Name="btnDeleteTracker" Text="Delete Tasks Data" Clicked="btnDeleteTracker_Clicked" Margin="0" BackgroundColor="Transparent" TextColor="Blue">
+            </Button>
+            </Frame>
+            <VerticalStackLayout>
+                <Frame>
+                    <Label Text="Device Details:">
+                        
+                    </Label>
+                </Frame>
+                <Frame>
+                    <Label x:Name="lblDevice" Text="">
+
+                    </Label>
+                </Frame>
+            </VerticalStackLayout>
+            <VerticalStackLayout>
+                <Frame>
+                    <Label Text="App Details:">
+
+                    </Label>
+                </Frame>
+                <Frame>
+                    <Label x:Name="lblApp" Text="">
+
+                    </Label>
+                </Frame>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.Views.NotesPage"
+             Title="NotesPage" BackgroundColor="White">
+
+    <AbsoluteLayout>
+        <ListView x:Name="NotesList" ItemSelected="NotesList_ItemSelected" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <SwipeView>
+                            <StackLayout Orientation="Vertical" Padding="10" MinimumHeightRequest="250">
+                                <Label Text="{Binding NoteName}" 
+                               VerticalOptions="Start" 
+                               FontSize="Large" 
+                               FontAttributes="Bold" />
+
+                                <Label Text="{Binding NoteDescription}" LineBreakMode="TailTruncation"
+                               VerticalOptions="Center" 
+                               FontSize="Medium"/>
+
+                                <Label Text="{Binding NoteDate}" 
+                               VerticalOptions="End" 
+                               FontSize="Small" 
+                               TextColor="Gray" />
+
+                            </StackLayout>
+                        </SwipeView>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button AbsoluteLayout.LayoutBounds="1, 1, AutoSize, AutoSize"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            Text="+"
+            FontSize="24"
+            WidthRequest="56"
+            HeightRequest="56"
+            CornerRadius="28"
+            BackgroundColor="Blue"
+            TextColor="White"
+            HorizontalOptions="Center"
+            VerticalOptions="Center" Clicked="OnFabClicked"/>
+    </AbsoluteLayout>
+</ContentPage>

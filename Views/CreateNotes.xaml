@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.Views.CreateNotes"
+             Title="New Note">
+    <ScrollView>
+    <VerticalStackLayout Padding="10">
+        <Frame>
+            <Label Text="Add Notes" FontSize="Title" TextColor="Blue"/>
+        </Frame>
+        
+        <Label Text="Note Title" TextColor="Black" />
+        <Entry x:Name="Title" Text="{Binding NoteName}"/>
+        
+        <Label Text="Note Description" TextColor="Black" />
+        <Editor x:Name="Description" Text="{Binding NoteDescription}" AutoSize="TextChanges"/>
+        
+        <Button x:Name="btnSave" Text="Save" BackgroundColor="Blue" Clicked="Button_Clicked" />
+        <Button x:Name="btnCancle" Text="Cancle" BackgroundColor="Red" Clicked="Button_Clicked_1" />
+    </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.Views.TrackerPage"
+             Title="Transactions..">
+    <!--<ContentPage.ToolbarItems>
+        <ToolbarItem Text="Show Details" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>-->
+    
+    <ListView x:Name="TransactionList" ItemSelected="TransactionList_ItemSelected">
+        <ListView.Header>
+            <StackLayout>
+                <VerticalStackLayout  Padding="5">
+                    <Button Text="Add(+) Transaction data" Clicked="Button_Clicked"  Margin="0" BackgroundColor="Transparent" TextColor="Blue" Padding="5"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout Padding="5">
+                    <Button x:Name="btnAll" Text="Select All" Clicked="btnAll_Clicked"  Margin="0" BackgroundColor="Transparent" TextColor="Blue" Padding="5"/>
+                </VerticalStackLayout>
+
+                <HorizontalStackLayout Padding="5">
+                    <Picker x:Name="pickYear" Title="Select Year"></Picker>
+                    <Picker x:Name="pickMonth" Title="Select Month"></Picker>
+                    <Button x:Name="btnSearch" Text="Filter" Clicked="btnSearch_Clicked" Margin="0" BackgroundColor="Transparent" TextColor="Blue" Padding="5"></Button>
+                </HorizontalStackLayout>
+
+                <VerticalStackLayout>
+                    <Frame CornerRadius="5" Padding="5">
+                    <Label x:Name="lblSaved" FontSize="Default" Text="Your savings: 0 /-" TextColor="Green"></Label>
+                    </Frame>
+                    <Frame CornerRadius="5" Padding="5">
+                        <Label x:Name="lblSpent" FontSize="Default" Text="You spent 0 /-" TextColor="Red"></Label>
+                    </Frame>
+                </VerticalStackLayout>
+
+            </StackLayout>
+        </ListView.Header>
+
+        <ListView.Footer>
+            <StackLayout BackgroundColor="White">
+                <Label Margin="10,0,0,0" HorizontalTextAlignment="Center"
+                   Text="you reached to an end.!"
+                   FontSize="12"
+                   FontAttributes="Bold" />
+            </StackLayout>
+        </ListView.Footer>
+
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Frame CornerRadius="5">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label  Grid.Row="0" Grid.Column="0"
+                           Text="{Binding TransactionDate}"
+                           FontAttributes="Bold" TextColor="Black"/>
+
+                            <Label  Grid.Row="0" Grid.Column="2"
+                           Text="{Binding Amount}"
+                           FontAttributes="Bold" TextColor="Black"/>
+
+                            <Label Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0"
+                           Text="{Binding TransactionDescription}"
+                           FontAttributes="None" TextColor="Black"/>
+
+                            <Label Grid.Row="0" Grid.Column="1"
+                           Text="{Binding TransactionType}"
+                           FontAttributes="Bold" TextColor="Black"/>
+                        </Grid>
+
+                    </Frame>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>
