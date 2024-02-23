@@ -4,8 +4,6 @@
              x:Class="MauiApp1.MainPage">
 
     <ScrollView>
-        <!--<WebView Source="https://notionpress.com/author/259113"></WebView>-->
-
         <VerticalStackLayout>
             <Frame>
                 <Button x:Name="btnDownloadTracker" Text="Download data as PDF" Clicked="btnDownloadTracker_Clicked" Margin="0" BackgroundColor="Transparent" TextColor="Blue">

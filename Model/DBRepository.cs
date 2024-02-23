@@ -18,12 +18,12 @@ namespace MauiApp1.Model
             if (connection != null)
                 return;
 
-            //string DatabasePath = Path.Combine(FileSystem.AppDataDirectory, "goodolddays.db3");
+            //string DatabasePath = Path.Combine(FileSystem.AppDataDirectory, "yourdbname.db3");
             //connection = new SQLite.SQLiteConnection(DatabasePath, Flags);
             //connection.CreateTable<Note>();
             //connection.CreateTable<CashTracker>();
 
-            string DatabasePath = Path.Combine(FileSystem.AppDataDirectory, "goodolddays.db3");
+            string DatabasePath = Path.Combine(FileSystem.AppDataDirectory, "yourdbname.db3");
             connection = new SQLite.SQLiteConnection(DatabasePath, Flags);
             connection.CreateTable<Note>();
             connection.CreateTable<CashTracker>();

@@ -14,10 +14,6 @@
         <Tab Title="Notes">
             <ShellContent ContentTemplate="{DataTemplate views:NotesPage}" />
         </Tab>
-        <!--<Tab Title="Tasks"
-            >
-            <ShellContent ContentTemplate="{DataTemplate views:TaskPage}" />
-        </Tab>-->
         <Tab Title="Tracker"
             >
             <ShellContent ContentTemplate="{DataTemplate views:TrackerPage}" />

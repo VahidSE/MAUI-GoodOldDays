@@ -25,8 +25,4 @@ namespace MauiApp1.Model
         public string TransactionType { get; set; } = "";
         public int Amount { get; set; } = 0;
     }
-    enum TransactionTypeEnum
-    {
-        Credit, Food, Travel, Recharge, EMI, Rent, Bill, Entertainement, Grocery, Snacks, Shopping, Gadegets, Furniture, Medicine, Others
-    }
 }

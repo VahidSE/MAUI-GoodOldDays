@@ -16,7 +16,7 @@ public static class MauiProgram
 
         builder
 			.UseMauiApp<App>()
-			.UseMauiCommunityToolkit()
+			.UseMauiCommunityToolkit() //used to save the pdf file in user selected location
             .ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

@@ -13,9 +13,4 @@ namespace MauiApp1.Model
         public string TaskState { get; set; }
         public string TaskTargetDate { get; set; }
     }
-
-    enum TaskState
-    { 
-       YetToStart, Started, Pending, Completed
-    }
 }
