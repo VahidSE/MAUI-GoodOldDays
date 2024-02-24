@@ -1,3 +1,4 @@
+using MauiApp1.GOD.BAL;
 using MauiApp1.Model;
 using System.Diagnostics;
 
@@ -5,14 +6,14 @@ namespace MauiApp1.Views;
 
 public partial class NotesPage : ContentPage
 {
-    DBRepository dBRepository = null;
+    NotesBAL notesBAL = null;
 
     public NotesPage()
 	{
         try
         {
             InitializeComponent();
-            dBRepository = new DBRepository();
+            notesBAL = new NotesBAL();
             LoadData();
         }
         catch (Exception ex)
@@ -29,7 +30,7 @@ public partial class NotesPage : ContentPage
     {
         try
         {
-            List<Note> items = dBRepository.GetNotes();
+            List<Note> items = notesBAL.GetNotes();
             NotesList.ItemsSource = items;
         }
         catch (Exception ex)

@@ -18,7 +18,15 @@ namespace MauiApp1.Model
         public int TxYear { get; set; }
         public int TxMonth { get; set; }
         public string TxColor { get; set; }
+
+        public Color TxColorToDisplay {
+            get {
+                return (TxColor == "Red") ? Color.FromRgba("#ff0000") : Color.FromRgba("#5d782e");
+                 }
+        } 
     }
+
+
 
     public class DisplayGroupByData
     {

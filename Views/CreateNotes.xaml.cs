@@ -1,4 +1,5 @@
 using MauiApp1.Model;
+using MauiApp1.GOD.BAL;
 
 namespace MauiApp1.Views;
 
@@ -6,15 +7,18 @@ public partial class CreateNotes : ContentPage
 {
     private bool isUpdate = false;
     private Note _modifyNote = null;
+    NotesBAL notesBAL = null;
 	public CreateNotes()
 	{
 		InitializeComponent();
+        notesBAL = new NotesBAL();
         btnSave.Text = "Save";
         btnCancle.Text = "Cancle";
     }
     public CreateNotes(Note note)
     {
         InitializeComponent();
+        notesBAL = new NotesBAL();
         BindingContext = note;
         isUpdate = true;
         _modifyNote = note;
@@ -28,12 +32,12 @@ public partial class CreateNotes : ContentPage
         {
             string _title = Title.Text;
             string _description = Description.Text;
-            DBRepository dBRepository = new DBRepository();
+          
             if (isUpdate)
             {
                 if (!string.IsNullOrEmpty(_modifyNote.NoteName) || !string.IsNullOrEmpty(_modifyNote.NoteDescription))
                 {
-                    dBRepository.UpdateNote(_modifyNote);
+                    notesBAL.UpdateNote(_modifyNote);
                     await Navigation.PopAsync();
                 }
                 else
@@ -52,7 +56,7 @@ public partial class CreateNotes : ContentPage
                         NoteDate = DateTime.Now.ToString(),
                         IsNoteDeleted = false
                     };
-                    dBRepository.CreateNote(item);
+                    notesBAL.CreateNote(item);
                     await Navigation.PopAsync();
                 }
                 else
@@ -75,8 +79,7 @@ public partial class CreateNotes : ContentPage
             {
                 if (!string.IsNullOrEmpty(_modifyNote.NoteName) || !string.IsNullOrEmpty(_modifyNote.NoteDescription))
                 {
-                    DBRepository dBRepository = new DBRepository();
-                    dBRepository.DeleteNote(_modifyNote);
+                    notesBAL.DeleteNote(_modifyNote);
                     await Navigation.PopAsync();
                 }
                 else

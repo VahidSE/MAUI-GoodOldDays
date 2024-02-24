@@ -1,4 +1,5 @@
-﻿using Microsoft.Maui.ApplicationModel.DataTransfer;
+﻿using MauiApp1.Model;
+using Microsoft.Maui.ApplicationModel.DataTransfer;
 using Microsoft.Maui.Controls.PlatformConfiguration;
 using SQLite;
 using System;
@@ -7,24 +8,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MauiApp1.Model
+namespace MauiApp1.GOD.DAL
 {
     public class DBRepository
     {
         SQLiteConnection connection;
-        public const SQLite.SQLiteOpenFlags Flags = SQLite.SQLiteOpenFlags.ReadWrite | SQLite.SQLiteOpenFlags.Create | SQLite.SQLiteOpenFlags.SharedCache;
+        public const SQLiteOpenFlags Flags = SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.Create | SQLiteOpenFlags.SharedCache;
         public DBRepository()
         {
             if (connection != null)
                 return;
 
-            //string DatabasePath = Path.Combine(FileSystem.AppDataDirectory, "yourdbname.db3");
-            //connection = new SQLite.SQLiteConnection(DatabasePath, Flags);
-            //connection.CreateTable<Note>();
-            //connection.CreateTable<CashTracker>();
-
             string DatabasePath = Path.Combine(FileSystem.AppDataDirectory, "yourdbname.db3");
-            connection = new SQLite.SQLiteConnection(DatabasePath, Flags);
+            connection = new SQLiteConnection(DatabasePath, Flags);
             connection.CreateTable<Note>();
             connection.CreateTable<CashTracker>();
 
@@ -32,7 +28,7 @@ namespace MauiApp1.Model
 
         public void CreateNote(Note item)
         {
-                connection.Insert(item);
+            connection.Insert(item);
         }
 
         public void DeleteNote(Note item)
@@ -57,7 +53,7 @@ namespace MauiApp1.Model
         }
 
         public void DeleteTransaction(CashTracker cashTracker)
-        { 
+        {
             connection.Delete(cashTracker);
         }
 
@@ -73,7 +69,7 @@ namespace MauiApp1.Model
             return arrYear;
         }
 
-        public int[] GetTxMonths() 
+        public int[] GetTxMonths()
         {
             int[] arrYear = connection.Table<CashTracker>().Select(x => x.TxMonth).Distinct().ToArray();
             return arrYear;
@@ -93,9 +89,9 @@ namespace MauiApp1.Model
             else if (year == 0 && month != 0)
             {
                 queryForData += " WHERE TxMonth=" + month;
-            }          
+            }
             List<CashTracker> items = connection.Query<CashTracker>(queryForData);
-              
+
             return items;
         }
 

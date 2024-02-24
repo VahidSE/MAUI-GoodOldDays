@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp1.Views.NotesPage"
-             Title="NotesPage" BackgroundColor="White">
+             Title="Notes" BackgroundColor="White">
 
     <AbsoluteLayout>
         <ListView x:Name="NotesList" ItemSelected="NotesList_ItemSelected" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">

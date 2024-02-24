@@ -1,17 +1,18 @@
 using MauiApp1.Model;
 using Microsoft.VisualBasic;
+using MauiApp1.GOD.BAL;
 
 namespace MauiApp1.Views;
 
 public partial class EnterData : ContentPage
 {
-	DBRepository dbRepository;
+	TrackerBAL trackerBAL = null;
 	public EnterData()
 	{
 		InitializeComponent();
+		trackerBAL = new TrackerBAL();
 		pickTransactionType.SelectedIndex = 0;
 		dateOfTransaction.Date = DateTime.Now;
-        dbRepository = new DBRepository();
 	}
 
     private void btnSave_Clicked(object sender, EventArgs e)
@@ -33,7 +34,7 @@ public partial class EnterData : ContentPage
 			TxMonth = month,
             TxColor = color
 		};
-        dbRepository.EnterTransaction(ct);
+        trackerBAL.EnterTransaction(ct);
 		Navigation.PopAsync();
     }
 }

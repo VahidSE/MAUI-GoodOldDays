@@ -1,13 +1,15 @@
 using MauiApp1.Model;
+using MauiApp1.GOD.BAL;
 
 namespace MauiApp1.Views;
 
 public partial class TrackerPage : ContentPage
 {
-	DBRepository dB = new DBRepository();
+    TrackerBAL trackerBAL = null;
     public TrackerPage()
 	{
 		InitializeComponent();
+        trackerBAL = new TrackerBAL();
         LoadData();
     }
 
@@ -20,12 +22,13 @@ public partial class TrackerPage : ContentPage
     private void LoadData()
     {
         int year = DateTime.Now.Year; int month = DateTime.Now.Month;
-        List<CashTracker> items = dB.GetTxByMonthAndYear(year, month);
+
+        List<CashTracker> items = trackerBAL.GetTxByMonthAndYear(year, month);
         TransactionList.ItemsSource = items;
         UpdateTotals(items);
-        pickYear.ItemsSource = dB.GetTxYears();
+        pickYear.ItemsSource = trackerBAL.GetTxYears();
         pickYear.SelectedItem = year;
-        pickMonth.ItemsSource = dB.GetTxMonths();
+        pickMonth.ItemsSource = trackerBAL.GetTxMonths();
         pickMonth.SelectedItem = month;
     }
 
@@ -69,7 +72,7 @@ public partial class TrackerPage : ContentPage
         string userResponse = await DisplayActionSheet("Delete transaction?", "NO", null, new string[] { "Delete" });
         if (userResponse == "Delete")
         {
-            dB.DeleteTransaction(item);
+            trackerBAL.DeleteTransaction(item);
         }    
     }
 
@@ -77,14 +80,14 @@ public partial class TrackerPage : ContentPage
     {
         int year = pickYear.SelectedItem != null ? System.Convert.ToInt32(pickYear.SelectedItem.ToString()) : 0;
         int month = pickMonth.SelectedItem != null ? System.Convert.ToInt32(pickMonth.SelectedItem.ToString()) : 0;
-        List<CashTracker> items = dB.GetTxByMonthAndYear(year, month);
+        List<CashTracker> items = trackerBAL.GetTxByMonthAndYear(year, month);
         TransactionList.ItemsSource = items;
         UpdateTotals(items);
     }
 
     private void btnAll_Clicked(object sender, EventArgs e)
     {
-        List<CashTracker> items = dB.GetTransactions();
+        List<CashTracker> items = trackerBAL.GetTransactions();
         TransactionList.ItemsSource = items;
         UpdateTotals(items);
     }
