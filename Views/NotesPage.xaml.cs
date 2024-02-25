@@ -1,6 +1,5 @@
 using MauiApp1.GOD.BAL;
 using MauiApp1.Model;
-using System.Diagnostics;
 
 namespace MauiApp1.Views;
 

@@ -93,6 +93,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\enter.png" />
+	  <None Remove="Resources\Images\Notes.png" />
+	  <None Remove="Resources\Images\Rupee.png" />
+	  <None Remove="Resources\Images\Settings.png" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Maui" Version="6.1.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 		<PackageReference Include="Microsoft.Maui.Extensions" Version="6.0.553" />

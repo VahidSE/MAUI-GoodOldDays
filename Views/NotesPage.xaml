@@ -5,12 +5,12 @@
              Title="Notes" BackgroundColor="White">
 
     <AbsoluteLayout>
-        <ListView x:Name="NotesList" ItemSelected="NotesList_ItemSelected" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+        <ListView x:Name="NotesList" ItemSelected="NotesList_ItemSelected" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" HasUnevenRows="True">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <SwipeView>
-                            <StackLayout Orientation="Vertical" Padding="10" MinimumHeightRequest="250">
+                            <StackLayout Orientation="Vertical" Padding="10">
                                 <Label Text="{Binding NoteName}" 
                                VerticalOptions="Start" 
                                FontSize="Large" 

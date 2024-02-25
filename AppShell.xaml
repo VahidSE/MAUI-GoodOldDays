@@ -11,14 +11,18 @@
     </Shell.ToolbarItems>-->
 
     <TabBar>
-        <Tab Title="Notes">
+        <Tab Title="Notes" Icon="notes.png">
             <ShellContent ContentTemplate="{DataTemplate views:NotesPage}" />
         </Tab>
-        <Tab Title="Tracker"
+        <Tab Title="Add Transaction" Icon="enter.png"
+            >
+            <ShellContent ContentTemplate="{DataTemplate views:EnterData}" />
+        </Tab>
+        <Tab Title="Tracker" Icon="rupee.png"
             >
             <ShellContent ContentTemplate="{DataTemplate views:TrackerPage}" />
         </Tab>
-        <Tab Title="Settings"
+        <Tab Title="Settings" Icon="settings.png"
             >
             <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
         </Tab>

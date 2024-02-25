@@ -7,36 +7,42 @@
         <ToolbarItem Text="Show Details" Clicked="ToolbarItem_Clicked"/>
     </ContentPage.ToolbarItems>-->
     
-    <ListView x:Name="TransactionList" ItemSelected="TransactionList_ItemSelected">
+    <ListView x:Name="TransactionList" ItemSelected="TransactionList_ItemSelected" HasUnevenRows="True">
         <ListView.Header>
-            <StackLayout>
-                <VerticalStackLayout  Padding="5">
-                    <Button Text="Add(+) Transaction data" Clicked="Button_Clicked"  Margin="0" BackgroundColor="Transparent" TextColor="Blue" Padding="5"/>
-                </VerticalStackLayout>
-                <VerticalStackLayout Padding="5">
-                    <Button x:Name="btnAll" Text="Select All" Clicked="btnAll_Clicked"  Margin="0" BackgroundColor="Transparent" TextColor="Blue" Padding="5"/>
-                </VerticalStackLayout>
-
-                <HorizontalStackLayout Padding="5">
-                    <Picker x:Name="pickYear" Title="Select Year"></Picker>
-                    <Picker x:Name="pickMonth" Title="Select Month"></Picker>
-                    <Button x:Name="btnSearch" Text="Filter" Clicked="btnSearch_Clicked" Margin="0" BackgroundColor="Transparent" TextColor="Blue" Padding="5"></Button>
-                </HorizontalStackLayout>
-
+            <StackLayout Padding="10">
                 <VerticalStackLayout>
                     <Frame CornerRadius="5" Padding="5">
-                    <Label x:Name="lblSaved" FontSize="Default" Text="Your savings: 0 /-" TextColor="Green"></Label>
-                    </Frame>
-                    <Frame CornerRadius="5" Padding="5">
-                        <Label x:Name="lblSpent" FontSize="Default" Text="You spent 0 /-" TextColor="Red"></Label>
+                        <Label x:Name="lblFilter" FontSize="Medium" HorizontalTextAlignment="Center" Text="Filter Data"></Label>
                     </Frame>
                 </VerticalStackLayout>
 
+                <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Padding="10">
+                    <Label x:Name="lblYear" FontSize="Default" Text="Year:" VerticalTextAlignment="Center"></Label>
+                    <Picker x:Name="pickerYear"></Picker>
+                    <Label x:Name="lblMonth" FontSize="Default" Text="Month:" VerticalTextAlignment="Center"></Label>
+                    <Picker x:Name="pickerMonth"></Picker>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Padding="10">
+                    <Button x:Name="btnFilter" Text="Filter" BackgroundColor="#512BD4" Clicked="btnFilter_Clicked"></Button>
+                    <Label x:Name="lblOR" FontSize="Default" Text=" or " VerticalTextAlignment="Center"></Label>
+                    <Button x:Name="btnAll" Text="Select All" BackgroundColor="#512BD4" Clicked="btnAll_Clicked"></Button>
+                    <Label x:Name="lblOR2" FontSize="Default" Text=" or " VerticalTextAlignment="Center"></Label>
+                    <Button x:Name="btnDownload" Text="Download PDF" BackgroundColor="#512BD4" Clicked="btnDownload_Clicked"></Button>
+                </HorizontalStackLayout>
+                <VerticalStackLayout Padding="10">
+                    <Frame CornerRadius="5" Padding="5">
+                        <Label x:Name="lblSaved" FontSize="Default" Text="Your savings: 0 /-" TextColor="Green" HorizontalTextAlignment="Center"></Label>
+                    </Frame>
+                    <Frame CornerRadius="5" Padding="5">
+                        <Label x:Name="lblSpent" FontSize="Default" Text="You spent 0 /-" TextColor="Red" HorizontalTextAlignment="Center"></Label>
+                    </Frame>
+                </VerticalStackLayout>
             </StackLayout>
         </ListView.Header>
 
         <ListView.Footer>
-            <StackLayout BackgroundColor="White">
+            <StackLayout>
                 <Label Margin="10,0,0,0" HorizontalTextAlignment="Center"
                    Text="you reached to an end.!"
                    FontSize="12"
@@ -47,9 +53,9 @@
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                    <Frame CornerRadius="5">
-                        <Grid>
-                            <Grid.RowDefinitions>
+                    <Frame Padding="10" Margin="5">
+                    <Grid>
+                        <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
@@ -61,7 +67,7 @@
 
                             <Label  Grid.Row="0" Grid.Column="0"
                            Text="{Binding TransactionDate}"
-                           FontAttributes="Bold" TextColor="Black"/>
+                           FontAttributes="Bold"/>
 
                             <Label  Grid.Row="0" Grid.Column="2"
                            Text="{Binding Amount}"
@@ -69,13 +75,12 @@
 
                             <Label Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0"
                            Text="{Binding TransactionDescription}"
-                           FontAttributes="None" TextColor="Black"/>
+                           FontAttributes="None"/>
 
                             <Label Grid.Row="0" Grid.Column="1"
                            Text="{Binding TransactionType}"
-                           FontAttributes="Bold" TextColor="Black"/>
+                           FontAttributes="Bold"/>
                         </Grid>
-
                     </Frame>
                 </ViewCell>
             </DataTemplate>

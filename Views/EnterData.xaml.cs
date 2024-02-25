@@ -1,5 +1,4 @@
 using MauiApp1.Model;
-using Microsoft.VisualBasic;
 using MauiApp1.GOD.BAL;
 
 namespace MauiApp1.Views;
@@ -35,6 +34,12 @@ public partial class EnterData : ContentPage
             TxColor = color
 		};
         trackerBAL.EnterTransaction(ct);
-		Navigation.PopAsync();
+
+		//Clear field values
+		txtAmount.Text = txtDescription.Text = string.Empty;
+        pickTransactionType.SelectedIndex = 0;
+        dateOfTransaction.Date = DateTime.Now;
+		//Navigation.PopAsync();
+	    DisplayAlert("Info", "Data Saved.!", "Okay");
     }
 }
